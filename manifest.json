@@ -1,0 +1,31 @@
+{
+  "manifest_version": 2,
+  "icons": { 
+    "16": "nim16.png",
+    "48": "nim48.png",
+   "128": "nim128.png" 
+  },
+  "name": "Nim Language Omnibar Search",
+  "description": "This extension will allow you to search the nim documentation by using the keyword 'nim' before a search in the omnibar.",
+  "version": "0.0.4",
+  "browser_action": {
+    "default_icon": "./nim.png"
+  },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "content.js" ],
+      "matches": [ "http://nim-lang.org/*", "https://nim-lang.org/*" ],
+      "run_at": "document_end"
+   } ],
+  "permissions": [     
+    "tabs",
+    "http://nim-lang.org/*", 
+    "https://nim-lang.org/*"
+  ],
+  "omnibox": { "keyword" : "nim" },
+  "background": {
+    "scripts": [
+      "background.js"
+    ]
+  }
+}
